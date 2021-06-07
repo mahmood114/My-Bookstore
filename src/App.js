@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import campus from "./KhaldiyaCampus.jpg"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="centerText">
+        <h1 >Mahmood's local bookstore</h1>
+        <br></br>
+        <p>My name is Sayed Mahmood Almohri. I am the founder and manager of this bookstore.</p>
+        <p>Soon, we will have a wide range of books in our website store.</p>
+        <p>Stay tuned!</p>
+        <img src={campus} />
+      </div>
+      
     </div>
   );
 }
