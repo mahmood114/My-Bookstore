@@ -15,3 +15,22 @@ code {
 .centerText {
   text-align: center;
 }
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.storeImage {
+  width: 500px;
+}
+
+.booksImage {
+  width: 200px;
+  height: 200px;
+}
+
+.book {
+  margin: 20px;
+}
