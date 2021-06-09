@@ -1,5 +1,6 @@
 import products from "../products.js";
 import BookItem from "./BookItem";
+import {ListWrapper} from "../styles.js";
 
 const Books = () => {
     
@@ -7,7 +8,7 @@ const Books = () => {
         <BookItem name={book.name} image={book.image} price={book.price}/>
       ));
 
-    return <div className="list">{booksList}</div>
+    return <ListWrapper>{booksList}</ListWrapper>
 }
 
 export default Books;

@@ -1,13 +1,15 @@
 import campus from "../KhaldiyaCampus.jpg";
+import {Title, Description, ShopImage} from "../styles.js";
+
 
 const Home = () => (
     <div className="centerText">
-        <h1 >Mahmood's local bookstore</h1>
+        <Title >Mahmood's local bookstore</Title>
         <br></br>
-        <h4>My name is Sayed Mahmood Almohri. I am the founder and manager of this bookstore.</h4>
-        <h4>Soon, we will have a wide range of books in our website store.</h4>
-        <h4>Stay tuned!</h4>
-        <img className="storeImage" src={campus} />
+        <Description>My name is Sayed Mahmood Almohri. I am the founder and manager of this bookstore.</Description>
+        <Description>Soon, we will have a wide range of books in our website store.</Description>
+        <Description>Stay tuned!</Description>
+        <ShopImage className="storeImage" src={campus} />
       </div>
 );
 

@@ -1,9 +1,11 @@
+import {ProductWrapper} from "../styles.js";
+
 const BookItem = (props) => (
-        <div className="book">
+        <ProductWrapper>
               <img className="booksImage" src={props.image} />
-              <h5 className="centerText">{props.name}</h5>
-              <h5 className="centerText">{props.price} KD</h5>
-        </div>
+              <p className="centerText">{props.name}</p>
+              <p className="product-price">{props.price} KD</p>
+        </ProductWrapper>
     );
 
 export default BookItem;
