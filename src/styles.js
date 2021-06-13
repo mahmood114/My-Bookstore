@@ -17,7 +17,11 @@ export const Description = styled.h4`
 `;
 
 export const ShopImage = styled.img `
-    width: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
 `;
 
 export const ListWrapper = styled.div `
@@ -38,7 +42,15 @@ export const ProductWrapper = styled.div `
         text-align: center;
 
         &.product-price{
-            color: ${(props) => props.theme.cardColor}
+            color: ${(props) => props.theme.mainColor}
         } 
     }
+`;
+
+export const ThemeButton = styled.button`
+    margin: 20px;
+    margin-bottom: 0;
+    font-size: 1.5em;
+    color: ${props => props.theme.backgroundColor};
+    background-color: ${props => props.theme.mainColor};
 `;
