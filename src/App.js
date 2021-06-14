@@ -9,31 +9,29 @@ function App() {
 
   const theme = {
     light:{
-      mainColor: "#03045e",
-      backgroundColor: "#f0efeb",
+      mainColor: "#15202b",
+      backgroundColor: "#ffffff",
     },
 
     dark: {
-      mainColor: "#f0efeb",
-      backgroundColor: "#03045e",
+      mainColor: "#ffffff",
+      backgroundColor: "#15202b",
     },
   };
 
   //To change the theme of the website
-  const [currentTheme, setCurrentTheme] = useState("light");
+  const [currentTheme, setCurrentTheme] = useState("dark");
   
   //To change the text inside the button to the opposite theme!
-  const [otherTheme, setOtherTheme] = useState("dark");
 
   const toggleTheme = () => {
-    setOtherTheme(currentTheme==="light"? "light" : "dark")
     setCurrentTheme(currentTheme==="light"? "dark" : "light")
   }
 
   return (
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
-      <ThemeButton onClick={toggleTheme}>{otherTheme} mode</ThemeButton>
+      <ThemeButton onClick={toggleTheme}>{currentTheme==="light"? "Light" : "Dark"} mode</ThemeButton>
       <Home />
       <BooksList />
 

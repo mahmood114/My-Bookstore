@@ -54,3 +54,11 @@ export const ThemeButton = styled.button`
     color: ${props => props.theme.backgroundColor};
     background-color: ${props => props.theme.mainColor};
 `;
+
+export const SearchBarStyled = styled.input`
+    width: 500px;
+    display: block;
+    margin: 20px auto;
+    height: 30px;
+
+`;
