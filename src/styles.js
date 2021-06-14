@@ -62,3 +62,24 @@ export const SearchBarStyled = styled.input`
     height: 30px;
 
 `;
+
+export const DetailWrapper = styled.div`
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+
+    span {
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+
+    img {
+        width: 40%;
+        float: left;
+        margin-right: 20px;
+        
+    }
+    
+    p {vertical-align: middle;}
+`;

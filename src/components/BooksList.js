@@ -4,13 +4,13 @@ import {ListWrapper} from "../styles.js";
 import SearchBar from "./SearchBar.js";
 import {useState} from "react";
 
-const Books = () => {
+const Books = (props) => {
     
   const [query, setQuery] = useState("");
 
   const BooksList = products
     .filter(book => book.name.toLowerCase().includes(query.toLowerCase()) || book.price === Number(query))
-    .map((book) => <BookItem name={book.name} image={book.image} price={book.price}/> );
+    .map((book) => <BookItem book={book} setBook={props.setBook}/> );
   
 
   return (
