@@ -83,3 +83,8 @@ export const DetailWrapper = styled.div`
     
     p {vertical-align: middle;}
 `;
+
+export const DeleteButtonStyled = styled.p`
+    color: ${props => props.theme.red};
+    font-style: bold;
+`;

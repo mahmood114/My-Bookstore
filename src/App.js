@@ -5,31 +5,42 @@ import {ThemeProvider} from "styled-components";
 import {GlobalStyle, ThemeButton} from "./styles.js";
 import {useState} from "react";
 import BookDetail from "./components/BookDetail.js";
-import products from "./products.js";
+import products from './products.js';
+
+const theme = {
+  light:{
+    mainColor: "#15202b",
+    backgroundColor: "#ffffff",
+    red: "red",
+  },
+
+  dark: {
+    mainColor: "#ffffff",
+    backgroundColor: "#15202b",
+    red: "red",
+  },
+};
 
 function App() {
 
-  const theme = {
-    light:{
-      mainColor: "#15202b",
-      backgroundColor: "#ffffff",
-    },
-
-    dark: {
-      mainColor: "#ffffff",
-      backgroundColor: "#15202b",
-    },
-  };
-
+// States
   const [currentTheme, setCurrentTheme] = useState("dark");
-  const [book, setBook] = useState(null);  
+  const [book, setBook] = useState(null);
+  const [_books, setBooks] = useState(products);
 
+  //Theme handler
   const toggleTheme = () => {
     setCurrentTheme(currentTheme==="light"? "dark" : "light")
   }
 
+// List/Detail view handler
   const setView = () => {
-    return book? <BookDetail book={book}/> : <BooksList setBook={setBook}/>
+    return book? <BookDetail book={book} setBook={setBook} deleteBook={deleteBook}/> : <BooksList setBook={setBook} books={_books} deleteBook={deleteBook}/>
+  }
+
+  const deleteBook = (bookID) => {
+    const filtered = _books.filter(book => book.id !== bookID);
+    setBooks(filtered);
   }
 
   return (
@@ -37,9 +48,6 @@ function App() {
       <GlobalStyle />
       <ThemeButton onClick={toggleTheme}>{currentTheme==="light"? "Light" : "Dark"} mode</ThemeButton>
       <Home />
-      
-      {/* <BooksList setBook={setBook}/>
-      <BookDetail book={book}/> */}
       {setView()}
     </ThemeProvider>
   );

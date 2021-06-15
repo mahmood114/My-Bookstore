@@ -1,4 +1,3 @@
-import products from "../products.js";
 import BookItem from "./BookItem";
 import {ListWrapper} from "../styles.js";
 import SearchBar from "./SearchBar.js";
@@ -8,9 +7,9 @@ const Books = (props) => {
     
   const [query, setQuery] = useState("");
 
-  const BooksList = products
+  const BooksList = props.books
     .filter(book => book.name.toLowerCase().includes(query.toLowerCase()) || book.price === Number(query))
-    .map((book) => <BookItem book={book} setBook={props.setBook}/> );
+    .map((book) => <BookItem book={book} setBook={props.setBook} deleteBook={props.deleteBook}/> );
   
 
   return (
