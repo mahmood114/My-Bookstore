@@ -9,7 +9,7 @@ const Books = (props) => {
 
   const BooksList = props.books
     .filter(book => book.name.toLowerCase().includes(query.toLowerCase()) || book.price === Number(query))
-    .map((book) => <BookItem book={book} setBook={props.setBook} deleteBook={props.deleteBook}/> );
+    .map((book) => <BookItem book={book} deleteBook={props.deleteBook}/> );
   
 
   return (

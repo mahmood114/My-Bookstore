@@ -5,8 +5,8 @@ const DeleteButton = (props) => {
     const handleDelete = () => {
         props.deleteBook(props.bookID);
         
-        if(props.goBack)
-            props.setBook(null);
+        // if(props.goBack)
+        //     props.setBook(null);
     }
 
     return (
