@@ -7,7 +7,6 @@ import {useState} from "react";
 import BookDetail from "./components/BookDetail.js";
 import books from './books.js';
 import { Route, Switch } from 'react-router';
-// import { Link } from 'react-router-dom';
 import logo from "./Bookstore-Logo.png";
 
 const theme = {

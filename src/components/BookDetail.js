@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import { Redirect } from "react-router-dom";
 import {DetailWrapper} from "../styles.js";
 import DeleteButton from "./button/DeleteButton.js";
+import { Helmet } from "react-helmet";
 
 const BookDetail = (props) => {
     
@@ -14,6 +15,9 @@ const BookDetail = (props) => {
 
     return (
         <DetailWrapper>
+            <Helmet>
+                <title>{book.name}</title>
+            </Helmet>
             <img src={book.image}/>
             <p>Name: <span>{book.name}</span></p>
             <p>Description: <span>{book.description}</span></p>

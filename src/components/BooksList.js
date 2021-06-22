@@ -2,6 +2,7 @@ import BookItem from "./BookItem";
 import {ListWrapper} from "../styles.js";
 import SearchBar from "./SearchBar.js";
 import {useState} from "react";
+import { Helmet } from "react-helmet";
 
 const Books = (props) => {
     
@@ -14,6 +15,9 @@ const Books = (props) => {
 
   return (
     <div>
+      <Helmet>
+        <title>Products</title>
+      </Helmet>
       <SearchBar setQuery={setQuery}/>
       <ListWrapper>{BooksList}</ListWrapper>
     </div>    
