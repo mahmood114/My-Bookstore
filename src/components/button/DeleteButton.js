@@ -1,12 +1,11 @@
+import productStore from "../../stores/productStore";
 import { DeleteButtonStyled } from "../../styles"
 
 const DeleteButton = (props) => {
 
     const handleDelete = () => {
-        props.deleteBook(props.bookID);
-        
-        // if(props.goBack)
-        //     props.setBook(null);
+        productStore.deleteBook(props.bookID);
+
     }
 
     return (

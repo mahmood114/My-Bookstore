@@ -1,15 +1,15 @@
 import { useParams } from "react-router";
-import { Redirect } from "react-router-dom";
-import {DetailWrapper} from "../styles.js";
+import { Redirect, Link } from "react-router-dom";
+import { DetailWrapper } from "../styles.js";
 import DeleteButton from "./button/DeleteButton.js";
 import { Helmet } from "react-helmet";
+import { observer } from "mobx-react";
+import productStore from "../stores/productStore.js";
 
-const BookDetail = (props) => {
-    
+const BookDetail = () => {
+
     const productSlug = useParams().productSlug;
-    const book = props.books.find(book => book.slug === productSlug);
-
-    const goBack = () => (<Redirect to="/products" />);
+    const book = productStore.books.find(book => book.slug === productSlug);
 
     if (!book) return (<Redirect to="/products" />);
 
@@ -18,14 +18,16 @@ const BookDetail = (props) => {
             <Helmet>
                 <title>{book.name}</title>
             </Helmet>
-            <img src={book.image}/>
+            <img src={book.image} alt="book cover" />
             <p>Name: <span>{book.name}</span></p>
             <p>Description: <span>{book.description}</span></p>
             <p>Price: <span>{book.price}</span></p>
-            <button onClick={goBack}>Back</button>
-            <DeleteButton setBook={props.setBook} bookID={book.id} deleteBook={props.deleteBook}></DeleteButton>
+            <Link to="/products">
+                <button>Back</button>
+            </Link>
+            <DeleteButton bookID={book.id}></DeleteButton>
         </DetailWrapper>
     )
 }
 
-export default BookDetail;
+export default observer(BookDetail);
