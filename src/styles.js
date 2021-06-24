@@ -116,13 +116,6 @@ export const Logo = styled(Link)`
     }
 `;
 
-export const DetailButtons = styled.div`
-    button {
-        display: inline-block;
-        margin-right: 10px;
-    }
-`;
-
 export const AiFillPlusCircleStyled = styled(AiFillPlusCircle)`
     color: ${props => props.theme.mainColor};
     display: block;
@@ -132,3 +125,4 @@ export const AiFillPlusCircleStyled = styled(AiFillPlusCircle)`
     width: 2.5em;
     cursor: pointer;
 `;
+

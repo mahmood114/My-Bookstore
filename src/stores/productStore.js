@@ -19,6 +19,16 @@ class ProductStore {
         newBook["slug"] = slugify(newBook.name);
         this.books.push(newBook);
     }
+
+    updateProduct = (updatedProduct) => {
+        const product = this.books.find(book => book.id === updatedProduct.id);
+        product.name = updatedProduct.name;
+        product.price = updatedProduct.price;
+        product.description = updatedProduct.description;
+        product.image = updatedProduct.image;
+
+        product.slug = slugify(updatedProduct.name);
+    }
 }
 
 const productStore = new ProductStore();

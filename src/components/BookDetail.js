@@ -1,10 +1,11 @@
 import { useParams } from "react-router";
 import { Redirect, useHistory } from "react-router-dom";
-import { DetailWrapper, DetailButtons } from "../styles.js";
+import { DetailWrapper } from "../styles.js";
 import DeleteButton from "./button/DeleteButton.js";
 import { Helmet } from "react-helmet";
 import { observer } from "mobx-react";
 import productStore from "../stores/productStore.js";
+import UpdateButton from "./buttons/UpdateButton.js";
 
 const BookDetail = () => {
 
@@ -22,12 +23,13 @@ const BookDetail = () => {
             </Helmet>
             <img src={book.image} alt="book cover" />
             <p>Name: <span>{book.name}</span></p>
-            <p>Description: <span>{book.description}</span></p>
+            <p><span>{book.description}</span></p>
             <p>Price: <span>{book.price}</span></p>
-            <DetailButtons>
+            <div className="d-flex justify-content-between">
                 <button className="btn btn-primary" onClick={goBack}>Back</button>
+                <UpdateButton book={book}/>
                 <DeleteButton bookID={book.id}></DeleteButton>
-            </DetailButtons>
+            </div>
         </DetailWrapper>
     )
 }
