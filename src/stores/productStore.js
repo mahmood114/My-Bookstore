@@ -22,11 +22,8 @@ class ProductStore {
 
     updateProduct = (updatedProduct) => {
         const product = this.books.find(book => book.id === updatedProduct.id);
-        product.name = updatedProduct.name;
-        product.price = updatedProduct.price;
-        product.description = updatedProduct.description;
-        product.image = updatedProduct.image;
-
+        // EAAAAASY Salwa 😎
+        Object.assign(product, updatedProduct);
         product.slug = slugify(updatedProduct.name);
     }
 }

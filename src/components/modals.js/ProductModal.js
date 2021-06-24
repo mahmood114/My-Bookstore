@@ -4,9 +4,8 @@ import productStore from "../../stores/productStore";
 
 const ProductModal = (props) => {
     
-    const [product, setProduct] = useState(props.oldProduct?
-        props.oldProduct 
-        : {
+    const [product, setProduct] = useState(props.oldProduct || 
+        {
             name:"",
             price: 1,
             description: "",
