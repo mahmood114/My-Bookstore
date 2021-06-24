@@ -11,7 +11,7 @@ const books = [
         id: 2,
         name: "Les Misérables",
         slug: "les-misérables",
-        description: "Les Misérables is a French historical novel that is considered one of the greatest novels of the 19th century",       
+        description: "Les Misérables is a French historical novel that is considered one of the greatest novels of the 19th century",
         price: 12,
         image: "https://eforezt.com/wp-content/uploads/2020/05/Les-Miserables-Img.jpg"
     },
@@ -23,6 +23,7 @@ const books = [
         price: 8,
         image: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1520486023l/23363983._SX318_.jpg"
     },
+    
 ]
 
 export default books;

@@ -1,10 +1,12 @@
 import BookItem from "./BookItem";
-import { ListWrapper } from "../styles.js";
+import { ListWrapper, AiFillPlusCircleStyled } from "../styles.js";
 import SearchBar from "./SearchBar.js";
 import { useState } from "react";
 import { Helmet } from "react-helmet";
 import productStore from "../stores/productStore";
 import { observer } from "mobx-react";
+import AddButton from "./buttons/AddButton";
+
 
 const Books = () => {
 
@@ -20,6 +22,7 @@ const Books = () => {
         <title>Products</title>
       </Helmet>
       <SearchBar setQuery={setQuery} />
+      <AddButton />
       <ListWrapper>{BooksList}</ListWrapper>
     </div>
   )

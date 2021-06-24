@@ -9,7 +9,7 @@ const DeleteButton = (props) => {
     }
 
     return (
-        <DeleteButtonStyled onClick={handleDelete}>Delete</DeleteButtonStyled>
+        <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
     )
 }
 

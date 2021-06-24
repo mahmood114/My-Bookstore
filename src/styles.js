@@ -1,6 +1,7 @@
-import {createGlobalStyle} from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
 import { Link, NavLink } from "react-router-dom";
+import {AiFillPlusCircle} from "react-icons/ai";
 
 export const GlobalStyle = createGlobalStyle`
     body {
@@ -17,7 +18,7 @@ export const Description = styled.h4`
     text-align: center;
 `;
 
-export const ShopImage = styled.img `
+export const ShopImage = styled.img`
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -25,25 +26,27 @@ export const ShopImage = styled.img `
 
 `;
 
-export const ListWrapper = styled.div `
+export const ListWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 `;
 
-export const ProductWrapper = styled.div `
+export const ProductWrapper = styled.div`
+    padding: 10px;
     margin: 20px;
-
+    color: ${(props) => props.theme.mainColor};
+    background-color: #2e465e;
     img {
-        width: 200px;
-        height: 200px;
+        width: 300px;
+        height: 300px;
     }
 
     p {
         text-align: center;
 
         &.product-price{
-            color: ${(props) => props.theme.mainColor}
         } 
     }
 `;
@@ -86,6 +89,7 @@ export const DetailWrapper = styled.div`
 `;
 
 export const DeleteButtonStyled = styled.p`
+    margin-top: 20px;
     color: ${props => props.theme.red};
     font-style: bold;
 
@@ -110,4 +114,21 @@ export const Logo = styled(Link)`
     img {
         width: 80px;
     }
+`;
+
+export const DetailButtons = styled.div`
+    button {
+        display: inline-block;
+        margin-right: 10px;
+    }
+`;
+
+export const AiFillPlusCircleStyled = styled(AiFillPlusCircle)`
+    color: ${props => props.theme.mainColor};
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 2.5em;
+    width: 2.5em;
+    cursor: pointer;
 `;
