@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { Redirect, useHistory } from "react-router-dom";
 import { DetailWrapper } from "../styles.js";
-import DeleteButton from "./button/DeleteButton.js";
+import DeleteButton from "./buttons/DeleteButton.js";
 import { Helmet } from "react-helmet";
 import { observer } from "mobx-react";
 import productStore from "../stores/productStore.js";
@@ -29,6 +29,7 @@ const BookDetail = () => {
                 <button className="btn btn-primary" onClick={goBack}>Back</button>
                 <UpdateButton book={book}/>
                 <DeleteButton bookID={book.id}></DeleteButton>
+
             </div>
         </DetailWrapper>
     )
