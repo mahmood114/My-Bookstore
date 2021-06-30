@@ -1,5 +1,5 @@
 import BookItem from "./BookItem";
-import { ListWrapper, AiFillPlusCircleStyled } from "../styles.js";
+import { ListWrapper } from "../styles.js";
 import SearchBar from "./SearchBar.js";
 import { useState } from "react";
 import { Helmet } from "react-helmet";
@@ -13,7 +13,7 @@ const Books = () => {
   const [query, setQuery] = useState("");
 
   const BooksList = productStore.books
-    .filter(book => book.name.toLowerCase().includes(query.toLowerCase()) || book.price === Number(query))
+    .filter(book => book.name.toLowerCase().includes(query.toLowerCase()) || book.price.toString().includes(query))
     .map((book) => <BookItem book={book} />);
 
   return (

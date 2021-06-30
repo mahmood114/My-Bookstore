@@ -1,5 +1,5 @@
 import productStore from "../../stores/productStore";
-import { DeleteButtonStyled } from "../../styles"
+
 
 const DeleteButton = (props) => {
 

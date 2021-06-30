@@ -28,14 +28,14 @@ const ProductModal = (props) => {
   return (
     <Modal isOpen={props.isOpen} onRequestClose={props.closeModal}>
       <form onSubmit={handleSubmit}>
-        <div class="form-group row py-1">
+        <div className="form-group row py-1">
           <label
             for="colFormLabel"
             className="col-sm-2 col-form-label text-dark"
           >
             Name
           </label>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <input
               name="name"
               value={product.name}
@@ -46,14 +46,14 @@ const ProductModal = (props) => {
             />
           </div>
         </div>
-        <div class="form-group row py-1">
+        <div className="form-group row py-1">
           <label
             for="colFormLabel"
             className="col-sm-2 col-form-label text-dark"
           >
             Price
           </label>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <input
               name="price"
               value={product.price}
@@ -65,14 +65,14 @@ const ProductModal = (props) => {
             />
           </div>
         </div>
-        <div class="form-group row py-1">
+        <div className="form-group row py-1">
           <label
             for="colFormLabel"
             className="col-sm-2 col-form-label text-dark"
           >
             Description
           </label>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <input
               name="description"
               value={product.description}
@@ -83,14 +83,14 @@ const ProductModal = (props) => {
             />
           </div>
         </div>
-        <div class="form-group row py-1">
+        <div className="form-group row py-1">
           <label
             for="colFormLabel"
             className="col-sm-2 col-form-label text-dark"
           >
             Image
           </label>
-          <div class="col-sm-10">
+          <div className="col-sm-10">
             <input
               name="image"
               value={product.image}
@@ -111,9 +111,3 @@ const ProductModal = (props) => {
 
 export default ProductModal;
 
-/*
-                        <label for="colFormLabel" className="col-sm-2 col-form-label text-dark">Image</label>
-                        <div class="col-sm-10">
-                            <input type="email" className="form-control" id="colFormLabel" placeholder="col-form-label" />
-                        </div>
-*/
