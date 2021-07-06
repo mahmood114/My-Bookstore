@@ -37,7 +37,7 @@ export const ProductWrapper = styled.div`
     padding: 10px;
     margin: 20px;
     color: ${(props) => props.theme.mainColor};
-    background-color: #2e465e;
+    background-color: ${(props) => props.theme.itemBGColor};
     img {
         width: 300px;
         height: 300px;

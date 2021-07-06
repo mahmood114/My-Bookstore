@@ -13,12 +13,14 @@ const theme = {
     mainColor: "#15202b",
     backgroundColor: "#ffffff",
     red: "red",
+    itemBGColor : "#f1f1f1",
   },
 
   dark: {
     mainColor: "#ffffff",
     backgroundColor: "#15202b",
     red: "red",
+    itemBGColor : "#2e465e",
   },
 };
 

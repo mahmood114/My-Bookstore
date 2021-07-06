@@ -22,7 +22,17 @@ const ProductModal = (props) => {
     if (props.oldProduct) productStore.updateProduct(product);
     else productStore.createBook(product);
 
+    setProduct({
+      name: "",
+      price: 1,
+      description: "",
+      image: "",
+    });
     props.closeModal();
+  };
+
+  const handleImage = (event) => {
+    setProduct({ ...product, image: event.target.files[0] });
   };
 
   return (
@@ -93,10 +103,10 @@ const ProductModal = (props) => {
           <div className="col-sm-10">
             <input
               name="image"
-              value={product.image}
-              onChange={handleChange}
+              // value={product.image}
+              onChange={handleImage}
               className="form-control"
-              type="text"
+              type="file"
               required
             />
           </div>
@@ -110,4 +120,3 @@ const ProductModal = (props) => {
 };
 
 export default ProductModal;
-

@@ -7,13 +7,15 @@ import productStore from "../stores/productStore";
 import { observer } from "mobx-react";
 import AddButton from "./buttons/AddButton";
 
-
 const Books = () => {
-
   const [query, setQuery] = useState("");
 
   const BooksList = productStore.books
-    .filter(book => book.name.toLowerCase().includes(query.toLowerCase()) || book.price.toString().includes(query))
+    .filter(
+      (book) =>
+        book.name.toLowerCase().includes(query.toLowerCase()) ||
+        book.price.toString().includes(query)
+    )
     .map((book) => <BookItem book={book} />);
 
   return (
@@ -25,7 +27,7 @@ const Books = () => {
       <AddButton />
       <ListWrapper>{BooksList}</ListWrapper>
     </div>
-  )
-}
+  );
+};
 
 export default observer(Books);
