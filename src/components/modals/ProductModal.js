@@ -2,9 +2,9 @@ import Modal from "react-modal";
 import { useState } from "react";
 import productStore from "../../stores/productStore";
 
-const ProductModal = (props) => {
+const ProductModal = ({ oldProduct, vendor, closeModal, isOpen }) => {
   const [product, setProduct] = useState(
-    props.oldProduct || {
+    oldProduct || {
       name: "",
       price: 1,
       description: "",
@@ -19,8 +19,8 @@ const ProductModal = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (props.oldProduct) productStore.updateProduct(product);
-    else productStore.createBook(product);
+    if (oldProduct) productStore.updateProduct(product);
+    else productStore.createBook(product, vendor);
 
     setProduct({
       name: "",
@@ -28,7 +28,7 @@ const ProductModal = (props) => {
       description: "",
       image: "",
     });
-    props.closeModal();
+    closeModal();
   };
 
   const handleImage = (event) => {
@@ -36,7 +36,7 @@ const ProductModal = (props) => {
   };
 
   return (
-    <Modal isOpen={props.isOpen} onRequestClose={props.closeModal}>
+    <Modal isOpen={isOpen} onRequestClose={closeModal}>
       <form onSubmit={handleSubmit}>
         <div className="form-group row py-1">
           <label
@@ -107,12 +107,11 @@ const ProductModal = (props) => {
               onChange={handleImage}
               className="form-control"
               type="file"
-              required
             />
           </div>
         </div>
         <button className="btn btn-primary mt-3" type="submit">
-          {props.oldProduct ? "Update" : "Create"}
+          {oldProduct ? "Update" : "Create"}
         </button>
       </form>
     </Modal>

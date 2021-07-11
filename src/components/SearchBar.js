@@ -1,10 +1,14 @@
-import {SearchBarStyled} from "../styles.js";
+import { SearchBarStyled } from "../styles.js";
 
 const SearchBar = (props) => {
-    return <SearchBarStyled 
-                onChange={(event) => props.setQuery(event.target.value)} 
-                placeholder="Search for a book's name or price"
-            />
-}
+  const placeholder = `Search for a ${props.target}`;
+
+  return (
+    <SearchBarStyled
+      onChange={(event) => props.setQuery(event.target.value)}
+      placeholder={placeholder}
+    />
+  );
+};
 
 export default SearchBar;

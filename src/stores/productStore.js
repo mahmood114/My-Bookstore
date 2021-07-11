@@ -1,9 +1,10 @@
 import { makeAutoObservable } from "mobx";
 import slugify from "react-slugify";
-import axios from "axios";
+import instance from "./instance";
 
 class ProductStore {
   books = [];
+  loading = true;
 
   constructor() {
     makeAutoObservable(this);
@@ -11,7 +12,7 @@ class ProductStore {
 
   deleteBook = async (bookID) => {
     try {
-      await axios.delete(`http://localhost:8000/books/${bookID}`);
+      await instance.delete(`/books/${bookID}`);
       const filtered = this.books.filter((book) => book.id !== bookID);
       this.books = filtered;
     } catch (error) {
@@ -21,17 +22,18 @@ class ProductStore {
     this.fetchProducts();
   };
 
-  createBook = async (newBook) => {
+  createBook = async (newBook, vendor) => {
     try {
       const formData = new FormData();
       for (let key in newBook) formData.append(key, newBook[key]);
 
-      const response = await axios.post(
-        "http://localhost:8000/books",
+      const response = await instance.post(
+        `/shops/${vendor.id}/books`,
         formData
       );
 
       this.books.push(response.data);
+      vendor.books.push({ id: response.data.id });
     } catch (error) {
       console.error("THIS IS YOUR STUPID ERROR\n", error);
     }
@@ -42,28 +44,27 @@ class ProductStore {
       const formData = new FormData();
       for (let key in updatedProduct) formData.append(key, updatedProduct[key]);
 
-      await axios.put(
-        `http://localhost:8000/books/${updatedProduct.id}`,
-        updatedProduct
-      );
+      await instance.put(`/books/${updatedProduct.id}`, updatedProduct);
       const product = this.books.find((book) => book.id === updatedProduct.id);
       Object.assign(product, updatedProduct);
       product.slug = slugify(product.name);
     } catch (error) {
       console.error("THIS IS YOUR STUPUD ERROR\n", error);
     }
-    // EAAAAASY Salwa
   };
 
   fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/books");
-
+      const response = await instance.get("/books");
       this.books = response.data;
+
+      this.loading = false;
     } catch (error) {
       console.error("There was a problem\n", error);
     }
   };
+
+  getBookById = (bookId) => this.books.find((book) => book.id === bookId);
 }
 
 const productStore = new ProductStore();
